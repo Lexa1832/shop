@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PARTIME</title>
+
+    <link rel="stylesheet" href="styles.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <!-- AGE MODAL -->
+    <div id="ageModal" class="age-modal">
+      <div class="age-box">
+        <img src="icons/age.png" alt="18+" class="age-icon">
+        <p>Сайт предназначен только для лиц старше 18 лет</p>
+        <button id="confirmAgeBtn">Мне есть 18 лет и больше </button>
+      </div>
+    </div>
+
+    <!-- HEADER -->
+    <header class="header">
+      <a href="#" class="logo">
+        <img src="images/logo/log.jpg" alt="PARTIME logo" />
+        <span>PARTIME</span>
+      </a>
+
+      <nav class="nav">
+        <a href="#catalog">Каталог 🛒</a>
+        <a href="#delivery">Доставка 🚚 </a>
+        <a href="https://t.me/+Z3KRNYGfYSNiM2Qy" target="_blank" class="telegram-btn">
+            Отзывы 📖
+        <a
+          href="https://t.me/PARtime5"
+          target="_blank"
+          class="telegram-btn"
+        >
+          <img src="icons/telegram.svg" alt="" class="telegram-icon" />
+          Telegram
+        </a>
+      </nav>
+
+      <!-- BURGER -->
+      <button class="burger" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-content">
+        <div class="hero-image">
+          <img src="images/logo/NewLogo.png" alt="PARTIME product" />
+        </div>
+
+        <h1>PARTIME</h1>
+
+        <p>
+          Премиум ВЕЙПSHOP в Польше.<br />
+          Лучшие цены, быстрая доставка и гарантия качества!
+        </p>
+
+        <a href="#catalog" class="btn">Смотреть каталог</a>
+      </div>
+    </section>
+
+    <!-- CATALOG -->
+    <section id="catalog">
+      <h2>КАТЕГОРИИ</h2>
+
+      <div class="categories">
+        <div class="card" data-type="liquids">
+          <img src="images/categories/liquids.png" alt="Жидкости" />
+        </div>
+
+        <div class="card" data-type="pods">
+          <img src="images/categories/pods.png" alt="Поды" />
+        </div>
+
+        <div class="card" data-type="vapes">
+          <img src="images/categories/vapes.png" alt="Одноразки" />
+        </div>
+
+        <div class="card" data-type="cartridges">
+          <img src="images/categories/cartridges.png" alt="Картриджи" />
+        </div>
+      </div>
+    </section>
+
+    <!-- DELIVERY -->
+    <section id="delivery" class="delivery">
+      <h2>Доставка</h2>
+
+      <div class="delivery-grid">
+        <div class="delivery-item">
+          <img src="icons/delivery.png" alt="Доставка по Польше" class="delivery-icon">
+          <h3>Доставка по Польше</h3>
+          <p>
+            Быстрая доставка по всей Польше.<br />
+            Отправка в день заказа или на следующий рабочий день. <br />
+            Стоимость Доставки: <br>
+            📦inpost - 12zl 🚚 DPD 40zl
+          </p>
+        </div>
+
+        <div class="delivery-item">
+          <img src="icons/store1.png" alt="Самовывоз" class="delivery-icon">
+          <h3>Самовывоз</h3>
+          <p>
+            Возможен самовывоз по договорённости.<br />
+            Адрес и время уточняйте у менеджера.
+          </p>
+        </div>
+
+        <div class="delivery-item">
+          <img src="icons/payment.png" alt="Оплата" class="delivery-icon">
+          <h3>Оплата</h3>
+          <p>
+            Условия оплаты уточняются индивидуально.<br />
+            Свяжитесь с менеджером для деталей.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUCTS MODAL -->
+<div id="productModal" class="modal">
+  <div class="modal-content">
+    <h3 id="modalTitle"></h3>
+    <ul id="productList"></ul>
+      
+      <!-- Уведомление о наличии и вкусах -->
+    <div class="availability-info">
+      <p>Наличие и вкусы уточняйте у менеджера.</p>
+    </div>
+    <a class="manager-btn" href="https://t.me/PARtime5" target="_blank">
+      <img src="icons/telegram.svg" alt="" class="telegram-icon" />
+      Связаться с менеджером
+    </a>
+
+    <button class="close" id="closeModalBtn">Закрыть</button>
+  </div>
+</div>
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-brand">
+          <div class="footer-logo">PARTIME</div>
+          <p class="footer-desc">
+            Ваш надежный поставщик вейп-продукции в Польше.<br />
+            Только оригинальные товары и лучший сервис.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4><span>|</span> Каталог</h4>
+          <ul>
+            <li><a href="#catalog">Одноразки</a></li>
+            <li><a href="#catalog">Жидкости</a></li>
+            <li><a href="#catalog">Поды</a></li>
+            <li><a href="#catalog">Картриджи</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4><span>|</span> Информация</h4>
+          <ul>
+            <li><a href="#delivery">Доставка</a></li>
+            <li><a href="#delivery">Оплата</a></li>
+            <li><a href="https://t.me/YourTelegramLink" target="_blank">Отзывы</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col footer-contacts">
+          <h4><span>|</span> Контакты</h4>
+
+          <div class="contact-card">
+            <strong>График работы</strong>
+            <p>
+              Пн–Пт: 12:00–20:00<br />
+              Сб: 12:00–17:00<br />
+              Вс: Выходной
+            </p>
+          </div>
+
+          <div class="contact-card telegram">
+            <strong>Telegram</strong>
+            <a href="https://t.me/PARtime5" target="_blank">
+              @PARtime5
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 PARTIME</span>
+
+        <div class="footer-warning">
+          <span>18+</span>
+          <p>
+            Продукция содержит никотин и предназначена для лиц старше 18 лет
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
