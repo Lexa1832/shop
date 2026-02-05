@@ -363,13 +363,12 @@ nav a:hover {
 #modalTitle {
   font-size: 24px;
   margin-bottom: 20px;
+  background-color: #1b0d2a;
   position: sticky;
   top: 0;
-  background-color: #1b0d2a;
-  padding: 10px 50px; /* 10px сверху/снизу, 50px слева/справа */
-  z-index: 1;
-  width: 100%;
-  text-align: center; /* Теперь центр будет настоящим */
+  z-index: 10; /* Увеличь, чтобы точно быть сверху */
+  backface-visibility: hidden; /* Заставляет браузер создать отдельный слой отрисовки */
+  transform: translateZ(0);
 }
 
 /* Стили для списка товаров */
