@@ -8,6 +8,12 @@ const products = {
     { name: 'Chaser lux', price: '50zl' },
     { name: 'Chaser f/p', price: '50zl' },
     { name: 'Chaser black', price: '50zl' },
+    { name: 'Elfliq', price: '50zl' },
+    { name: 'Vozol', price: '50zl' },
+    { name: 'Chaser special 30ml 50mg', price: '50zl' },
+    { name: 'Chaser lux 30ml 60mg', price: '50zl' },
+    { name: 'Chaser f/p 30ml 60mg', price: '50zl' },
+    { name: 'Chaser black 30ml 50mg', price: '50zl' }
   ],
   pods: [
     { name: 'Xros 5', price: '120zl' },
@@ -26,13 +32,7 @@ const products = {
     { name: 'Elfbar planet 25k', price: '80zl' },
     { name: 'Waka 25k', price: '80zl' },
     { name: 'Waka 10k', price: '70zl' },
-    { name: 'Elfbar 1500k', price: '35zl' },
-    { name: 'Elfliq', price: '50zl' },
-    { name: 'Vozol', price: '50zl' },
-    { name: 'Chaser special', price: '50zl' },
-    { name: 'Chaser lux', price: '50zl' },
-    { name: 'Chaser f/p', price: '50zl' },
-    { name: 'Chaser black', price: '50zl' }
+    { name: 'Elfbar 1500k', price: '35zl' }
   ],
   cartridges: [
     { name: 'Vaporesso XROS 3 ML Cartridge', price: '30zl' },
