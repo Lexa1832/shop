@@ -3,17 +3,14 @@
 ========================= */
 const products = {
   liquids: [
-    { name: 'Vozol', price: '50zl' },
-    { name: 'Chaser special', price: '50zl' },
-    { name: 'Chaser lux', price: '50zl' },
-    { name: 'Chaser f/p', price: '50zl' },
-    { name: 'Chaser black', price: '50zl' },
-    { name: 'Elfliq', price: '50zl' },
-    { name: 'Vozol', price: '50zl' },
+    { name: 'Elfliq 30ml 50mg', price: '50zl' },
+    { name: 'Vozol 30ml 50mg', price: '50zl' },
     { name: 'Chaser special 30ml 50mg', price: '50zl' },
     { name: 'Chaser lux 30ml 60mg', price: '50zl' },
     { name: 'Chaser f/p 30ml 60mg', price: '50zl' },
-    { name: 'Chaser black 30ml 50mg', price: '50zl' }
+    { name: 'Chaser black 30ml 50mg', price: '50zl' },
+    { name: 'Chaser Limited Edition 30ml 60mg', price: '50zl' },
+    { name: 'Chaser Squad Game 30ml 50mg', price: '50zl' }
   ],
   pods: [
     { name: 'Xros 5', price: '120zl' },
