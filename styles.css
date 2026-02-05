@@ -27,7 +27,20 @@
 *::after {
   box-sizing: border-box;
 }
+html, body {
+  max-width: 100%;
+  overflow-x: hidden; /* Запрещает горизонтальную прокрутку */
+  position: relative;
+}
+img, video, canvas, svg {
+  max-width: 100%;
+  height: auto;
+}
 
+body {
+  overflow-x: hidden; /* Запрещает горизонтальный скролл, если что-то вылезло */
+  width: 100%;
+}
 html { scroll-behavior: smooth; }
 
 body {
@@ -334,9 +347,11 @@ nav a:hover {
   width: 100%;
   color: #fff;
   text-align: center;
-  height: 500px; /* Фиксированная высота модального окна */
+  height: 600px; /* Можно увеличить высоту, раз товаров много */
+  max-height: 90vh; /* Чтобы не вылезало за пределы экрана телефона */
+  
   display: flex;
-  flex-direction: column;
+  flex-direction: column; /* Элементы идут друг за другом сверху вниз */
   position: relative;
   overflow: hidden;
 }
@@ -346,14 +361,15 @@ nav a:hover {
   margin-bottom: 20px;
 }
 #modalTitle {
-  font-size: 28px;
+  font-size: 24px;
   margin-bottom: 20px;
   position: sticky;
   top: 0;
   background-color: #1b0d2a;
-  padding: 10px;
+  padding: 10px 50px; /* 10px сверху/снизу, 50px слева/справа */
   z-index: 1;
-  width: 100%; /* Чтобы заголовок занимал всю ширину */
+  width: 100%;
+  text-align: center; /* Теперь центр будет настоящим */
 }
 
 /* Стили для списка товаров */
@@ -364,6 +380,28 @@ nav a:hover {
   padding-right: 10px;
   flex-grow: 1; /* Заставляем список занимать доступное пространство */
   text-align: left; /* Выравнивание товаров по левому краю */
+}
+/* Настраиваем ширину скроллбара */
+#productList::-webkit-scrollbar {
+  width: 6px; /* Тонкая полоска */
+}
+
+/* Настраиваем "дорожку" (фон скролла) */
+#productList::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1); /* Полупрозрачный фон */
+  border-radius: 4px;
+}
+
+/* Настраиваем "бегунок" (то, что двигается) */
+#productList::-webkit-scrollbar-thumb {
+  background-color: #c084fc; /* Фиолетовый цвет (как в твоем логотипе) */
+  border-radius: 4px;
+}
+
+/* Поддержка Firefox (там другие свойства) */
+#productList {
+  scrollbar-width: thin; /* Тонкий скролл */
+  scrollbar-color: #c084fc rgba(255, 255, 255, 0.1); /* Цвет бегунка и фона */
 }
 
 /* Стили для каждого товара */
@@ -437,9 +475,10 @@ nav a:hover {
 
 /* Кнопка закрыть */
 .close {
-  position: absolute;
-  top: 16px; /* Отступ от верхнего края */
-  right: 16px; /* Отступ от правого края */
+ position: absolute;
+  top: 10px;
+  right: 15px;
+  z-index: 9999; /* Чтобы была выше заголовка */
   background: none;
   border: none;
   color: rgba(255, 255, 255, 0.7);
@@ -637,7 +676,11 @@ nav a:hover {
   nav {
     display: none;
   }
-
+#catalog .categories {
+    max-height: none; /* Убираем ограничение высоты */
+    overflow: visible; /* Убираем скрытие элементов */
+    display: grid; /* Убедимся, что грид остался */
+  }
   .burger {
     display: flex;
   }
@@ -753,23 +796,52 @@ nav a:hover {
   }
 }
 
-/* Для поворота экрана на мобильных устройствах (landscape) */
 @media (orientation: landscape) {
+  .modal {
+    align-items: flex-start; /* Позволяем контенту начинаться сверху, если он большой */
+    padding: 10px;
+  }
+
   .modal-content {
-    max-width: 500px;
-    padding: 24px;
+    height: auto; /* Убираем фиксированную высоту! */
+    max-height: 95vh; /* Модалка не должна быть выше экрана */
+    width: 90%;
+    max-width: 550px;
+    padding: 15px 30px; /* Уменьшаем внутренние отступы, чтобы сэкономить место */
+    display: flex;
+    flex-direction: column;
   }
 
-  .product-name, .product-price {
-    font-size: 18px;
+  /* Уменьшаем отступы заголовка, чтобы список товаров был больше */
+  #modalTitle {
+    font-size: 22px;
+    margin-bottom: 10px;
+    padding: 5px;
   }
 
-  .modal-content h3 {
-    font-size: 26px;
+  #productList {
+    max-height: 40vh; /* Ограничиваем список, чтобы кнопка снизу влезла в экран */
+    margin-bottom: 10px;
+  }
+
+  .availability-info {
+    display: none; /* В ландшафте инфо-блок лучше скрыть, чтобы не занимать место */
   }
 
   .manager-btn {
-    font-size: 18px;
+    padding: 8px 16px;
+    font-size: 14px;
+    position: relative; /* Гарантируем, что она в потоке */
+    bottom: 0;
+    transform: none;
+    left: 0;
+    width: auto;
+    align-self: center;
+  }
+
+  .close {
+    top: 5px;
+    right: 10px;
   }
 }
 @media (max-width: 280px) {
@@ -894,3 +966,89 @@ nav a:hover {
     gap: 10px;
   }
 }
+
+@media (max-width: 290px) {
+  header {
+    padding: 10px 8px !important; /* Минимальные отступы по бокам */
+    gap: 8px;
+  }
+  
+  .logo {
+    font-size: 16px; /* Еще немного уменьшаем текст лого */
+  }
+
+  .logo img {
+    height: 22px; /* Уменьшаем саму иконку */
+  }
+}
+
+@media (max-width: 290px) {
+  .categories {
+    grid-template-columns: 1fr !important; /* Строго одна колонка */
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  .card {
+    width: 100%; /* Карточка не должна быть шире экрана */
+  }
+}
+
+@media (max-width: 290px) {
+  .modal-content {
+    padding: 12px !important; /* Резко уменьшаем внутренние поля */
+    width: 95%; /* Чуть больше ширины */
+  }
+  
+  .product-item {
+    gap: 5px;
+  }
+
+  .product-name {
+    font-size: 13px; /* Крошечный шрифт для крошечного экрана */
+  }
+}
+
+@media (max-width: 480px) {
+  #catalog h2 {
+    font-size: 32px !important; /* Уменьшаем с 56px до разумных 32px */
+    line-height: 1.2;
+    word-wrap: break-word; /* Позволяем перенос, если слово очень длинное */
+    padding: 0 10px;
+  }
+}
+
+/* Специально для супер-узких экранов как на скриншоте */
+@media (max-width: 290px) {
+  #catalog h2 {
+    font-size: 24px !important; 
+  }
+}
+
+@media (max-width: 320px) {
+  header {
+    padding: 10px 15px !important; /* Уменьшаем боковые отступы */
+  }
+  
+  .logo {
+    font-size: 18px !important;
+  }
+}
+
+@media (max-width: 320px) {
+  .categories {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 0 10px !important;
+    max-height: none !important; /* Убираем лимит высоты, о котором говорили в начале */
+  }
+
+  .card {
+    width: 100% !important; /* Карточка на всю ширину экрана */
+    max-width: 260px; /* Чтобы не была слишком огромной */
+    aspect-ratio: 1 / 1;
+  }
+}
+
