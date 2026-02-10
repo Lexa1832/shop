@@ -15,6 +15,7 @@ const products = {
   pods: [
     { name: 'Xros 5', price: '120zl' },
     { name: 'Xros 5 mini', price: '100zl' },
+    { name: 'OXVA XLIM GO 2', price: '100zl' }, 
   ],
   vapes: [
     { name: 'Vozol gear 50k', price: '110zl' },
@@ -34,6 +35,7 @@ const products = {
   cartridges: [
     { name: 'Vaporesso XROS 3 ML Cartridge', price: '30zl' },
     { name: 'VAPORESSO VIBE POD 4,5ML', price: '30zl' },
+    { name: 'OXVA 3ml ,5ML', price: '30zl' },
   ],
 };
 
