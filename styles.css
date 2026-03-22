@@ -192,7 +192,44 @@ nav a:hover {
 .delivery {
   padding-top: 120px;
 }
+/* =========================
+   promo discount
+========================= */
+.promo-ticker-section {
+    width: 100%;
+    /* Градиентный фон как на твоей кнопке, но чуть темнее */
+    background: linear-gradient(90deg, #1a0033 0%, #2d004d 50%, #1a0033 100%);
+    border-top: 1px solid #ff00ff; /* Неоновая розовая линия */
+    border-bottom: 1px solid #ff00ff;
+    padding: 10px 0;
+    margin: 30px 0;
+    overflow: hidden;
+    /* Тень, чтобы строка казалась объемной */
+    box-shadow: 0 0 20px rgba(255, 0, 255, 0.2);
+}
 
+.ticker-content {
+    display: inline-block;
+    white-space: nowrap;
+    animation: marquee-animation 12s linear infinite; /* 12 секунд для комфортного чтения */
+}
+
+.ticker-content span {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    /* Легкое свечение текста в тон сайта */
+    text-shadow: 0 0 10px rgba(255, 0, 255, 0.8);
+    padding-right: 50px; /* Отступ между повторяющимися фразами */
+}
+
+/* Плавная бесконечная анимация */
+@keyframes marquee-animation {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-25%); } /* Подгоняем под длину текста */
+}
 /* =========================
    HERO
 ========================= */

@@ -18,24 +18,25 @@ const products = {
     { name: 'OXVA XLIM GO 2', price: '100zl' }, 
   ],
   vapes: [
-    { name: 'Vozol gear 50k', price: '110zl' },
-    { name: 'Elfbar bc 45k', price: '110zl' },
-    { name: 'Elfbar moonlight 40k', price: '100zl' },
-    { name: 'Vozol vista 40k', price: '100zl' },
-    { name: 'Vozol rave 40k', price: '100zl' },
-    { name: 'Elfbar gh 33k', price: '90zl' },
-    { name: 'Elfbar combo pro 30k', price: '90zl' },
-    { name: 'Elfbar raya d3 pro 30k', price: '90zl' },
-    { name: 'Elfbar raya d3 25k', price: '80zl' },
-    { name: 'Elfbar planet 25k', price: '80zl' },
-    { name: 'Waka 25k', price: '80zl' },
-    { name: 'Waka 10k', price: '70zl' },
-    { name: 'Elfbar 1500k', price: '35zl' }
+    { name: 'Vozol gear 50k 5%', price: '110zl' },
+    { name: 'Elfbar bc 45k 5%', price: '110zl' },
+    { name: 'Elfbar moonlight 40k 5%', price: '100zl' },
+    { name: 'Vozol vista 40k 5%', price: '100zl' },
+    { name: 'Vozol rave 40k 5%', price: '100zl' },
+    { name: 'Elfbar gh 33k 5%', price: '90zl' },
+    { name: 'Elfbar combo pro 30k 5%', price: '90zl' },
+    { name: 'Elfbar raya d3 pro 30k 5%', price: '90zl' },
+    { name: 'Elfbar raya d3 25k 5%', price: '80zl' },
+    { name: 'Elfbar planet 25k 5%', price: '80zl' },
+    { name: 'Waka 25k 5%', price: '80zl' },
+    { name: 'Waka 10k 5%', price: '70zl' },
+    { name: 'Elfbar 2000k 5%`', price: '35zl' },
+    { name: 'BARON 77 MG 5%', price: '30zl' },
   ],
   cartridges: [
-    { name: 'Vaporesso XROS 3 ML Cartridge', price: '30zl' },
-    { name: 'VAPORESSO VIBE POD 4,5ML', price: '30zl' },
-    { name: 'OXVA 3ml ,5ML', price: '30zl' },
+    { name: 'Vaporesso XROS Cartridge', price: '30zl' },
+    { name: 'VAPORESSO VIBE POD ', price: '30zl' },
+    { name: 'OXVA ', price: '30zl' },
   ],
 };
 
@@ -52,6 +53,8 @@ const confirmAgeBtn = document.getElementById('confirmAgeBtn');
 
 const burger = document.querySelector('.burger');
 const nav = document.querySelector('header nav');
+
+
 
 /* =========================
    PRODUCT MODAL
@@ -140,4 +143,17 @@ if (burger && nav) {
       document.body.classList.remove('menu-open');
     });
   });
+  document.querySelectorAll('.footer-modal-link').forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault(); // Чтобы страница не прыгала вверх
+        
+        const type = this.getAttribute('data-type');
+        // Находим карточку в основном каталоге с таким же типом
+        const catalogCard = document.querySelector(`.card[data-type="${type}"]`);
+        
+        if (catalogCard) {
+            catalogCard.click(); // Имитируем клик по карточке, чтобы открылось модальное окно
+        }
+    });
+});
 }
